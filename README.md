@@ -1,4 +1,4 @@
-!\[Diagram](How%20Does%20It%20Work.png)
+!\[Diagram](./How%20Does%20It%20Work.png)
 
 ---------------------
 
