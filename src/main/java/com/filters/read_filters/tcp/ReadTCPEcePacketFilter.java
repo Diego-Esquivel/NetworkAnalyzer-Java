@@ -1,4 +1,5 @@
-package common.resources.implementations.filters.read_filters.tcp;
+package com.filters.read_filters.tcp;
+import com.filters.read_filters.tcp.ReadFilter;
 
 /**
  * Filter to read TCP ECE packets from network traffic.
@@ -12,15 +13,10 @@ package common.resources.implementations.filters.read_filters.tcp;
  *   description: A brief description of the filter.
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP ECE packets.
  */
-public class ReadTCPEcePacketFilter {
-    private final String description = "Filter to read TCP ECE packets";
-    private final String filterExpression = "tcp[13] & 0x40 != 0"; // BPF expression for TCP ECE packets
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getFilterExpression() {
-        return filterExpression;
+public class ReadTCPEcePacketFilter extends ReadFilter {
+    public ReadTCPEcePacketFilter() {
+        super();
+        description = "Filter to read TCP ECE packets";
+        filterExpression = "tcp[13] & 0x40 != 0"; // BPF expression for TCP ECE packets
     }
 }

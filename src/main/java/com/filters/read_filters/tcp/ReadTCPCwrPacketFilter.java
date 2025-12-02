@@ -1,4 +1,5 @@
-package common.resources.implementations.filters.read_filters.tcp;
+package com.filters.read_filters.tcp;
+import com.filters.read_filters.tcp.ReadFilter;
 
 /**
  * Filter to read TCP CWR packets from network traffic.
@@ -11,15 +12,10 @@ package common.resources.implementations.filters.read_filters.tcp;
  *   description: A brief description of the filter.
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP CWR packets.
  */
-public class ReadTCPCwrPacketFilter {
-    private final String description = "Filter to read TCP CWR packets";
-    private final String filterExpression = "tcp[13] & 0x80 != 0"; // BPF expression for TCP CWR packets
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getFilterExpression() {
-        return filterExpression;
+public class ReadTCPCwrPacketFilter extends ReadFilter {
+    public ReadTCPCwrPacketFilter() {
+        super();
+        description = "Filter to read TCP CWR packets";
+        filterExpression = "tcp[13] & 0x80 != 0"; // BPF expression for TCP CWR packets
     }
 }

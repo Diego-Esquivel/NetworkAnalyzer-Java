@@ -1,4 +1,5 @@
-package common.resources.implementations.filters.read_filters.tcp;
+package com.filters.read_filters.tcp;
+import com.filters.read_filters.tcp.ReadFilter;
 
 /**
  * Filter to read TCP PSH packets from network traffic.
@@ -11,15 +12,10 @@ package common.resources.implementations.filters.read_filters.tcp;
  *   description: A brief description of the filter.
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP PSH packets.
  */
-public class ReadTCPPshPacketFilter {
-    private final String description = "Filter to read TCP PSH packets";
-    private final String filterExpression = "tcp[13] & 0x08 != 0"; // BPF expression for TCP PSH packets
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getFilterExpression() {
-        return filterExpression;
+public class ReadTCPPshPacketFilter extends ReadFilter {
+    public ReadTCPPshPacketFilter() {
+        super();
+        description = "Filter to read TCP PSH packets";
+        filterExpression = "tcp[13] & 0x08 != 0"; // BPF expression for TCP PSH packets
     }
 }

@@ -1,4 +1,5 @@
-package common.resources.implementations.filters.read_filters.tcp;
+package com.filters.read_filters.tcp;
+import com.filters.read_filters.tcp.ReadFilter;
 
 /**
  * Filter to read TCP RST packets from network traffic.
@@ -11,15 +12,10 @@ package common.resources.implementations.filters.read_filters.tcp;
  *   description: A brief description of the filter.
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP RST packets.
  */
-public class ReadTCPRstPacketFilter {
-    private final String description = "Filter to read TCP RST packets";
-    private final String filterExpression = "tcp[13] & 0x04 != 0"; // BPF expression for TCP RST packets"
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getFilterExpression() {
-        return filterExpression;
+public class ReadTCPRstPacketFilter extends ReadFilter {
+    public ReadTCPRstPacketFilter() {
+        super();
+        description = "Filter to read TCP RST packets";
+        filterExpression = "tcp[13] & 0x04 != 0"; // BPF expression for TCP RST packets
     }
 }
