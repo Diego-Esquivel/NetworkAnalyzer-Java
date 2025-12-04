@@ -13,9 +13,14 @@ import com.filters.read_filters.tcp.ReadFilter;
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP PSH packets.
  */
 public class ReadTCPPshPacketFilter extends ReadFilter {
-    public ReadTCPPshPacketFilter() {
-        super();
-        description = "Filter to read TCP PSH packets";
-        filterExpression = "tcp[13] & 0x08 != 0"; // BPF expression for TCP PSH packets
+    protected static String description = "Filter to read TCP PSH packets";
+    protected static String filterExpression = "tcp[13] & 0x08 != 0"; // BPF expression for TCP PSH packets
+    
+    public static String getDescription() {
+        return description;
+    }
+    
+    public static String getFilterExpression() {
+        return filterExpression;
     }
 }

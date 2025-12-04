@@ -13,9 +13,14 @@ import com.filters.read_filters.tcp.ReadFilter;
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP URG packets.
  */
 public class ReadTCPUrgPacketFilter extends ReadFilter {
-    public ReadTCPUrgPacketFilter() {
-        super();
-        description = "Filter to read TCP URG packets";
-        filterExpression = "tcp[13] & 0x20 != 0"; // BPF expression for TCP URG packets
+    protected static String description = "Filter to read TCP URG packets";
+    protected static String filterExpression = "tcp[13] & 0x20 != 0"; // BPF expression for TCP URG packets
+    
+    public static String getDescription() {
+        return description;
+    }
+    
+    public static String getFilterExpression() {
+        return filterExpression;
     }
 }

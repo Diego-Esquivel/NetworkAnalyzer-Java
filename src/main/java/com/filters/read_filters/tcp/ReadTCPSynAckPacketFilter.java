@@ -13,9 +13,14 @@ import com.filters.read_filters.tcp.ReadFilter;
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP SYN-ACK packets.
  */
 public class ReadTCPSynAckPacketFilter extends ReadFilter {
-    public ReadTCPSynAckPacketFilter() {
-        super();
-        description = "Filter to read TCP SYN-ACK packets";
-        filterExpression = "tcp[13] & 0x12 == 0x12"; // BPF expression for TCP SYN-ACK packets
+    protected static String description = "Filter to read TCP SYN-ACK packets";
+    protected static String filterExpression = "tcp[13] & 0x12 == 0x12"; // BPF expression for TCP SYN-ACK packets
+    
+    public static String getDescription() {
+        return description;
+    }
+    
+    public static String getFilterExpression() {
+        return filterExpression;
     }
 }

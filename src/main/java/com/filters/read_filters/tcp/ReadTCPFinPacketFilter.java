@@ -13,9 +13,14 @@ import com.filters.read_filters.tcp.ReadFilter;
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP FIN packets.
  */
 public class ReadTCPFinPacketFilter extends ReadFilter {
-    public ReadTCPFinPacketFilter() {
-        super();
-        description = "Filter to read TCP FIN packets";
-        filterExpression = "tcp[13] & 0x01 != 0"; // BPF expression for TCP FIN packets
+    protected static String description = "Filter to read TCP FIN packets";
+    protected static String filterExpression = "tcp[13] & 0x01 != 0"; // BPF expression for TCP FIN packets
+    
+    public static String getDescription() {
+        return description;
+    }
+    
+    public static String getFilterExpression() {
+        return filterExpression;
     }
 }

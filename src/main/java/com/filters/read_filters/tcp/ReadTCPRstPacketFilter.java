@@ -13,9 +13,14 @@ import com.filters.read_filters.tcp.ReadFilter;
  *   filterExpression: The BPF (Berkeley Packet Filter) expression used to read TCP RST packets.
  */
 public class ReadTCPRstPacketFilter extends ReadFilter {
-    public ReadTCPRstPacketFilter() {
-        super();
-        description = "Filter to read TCP RST packets";
-        filterExpression = "tcp[13] & 0x04 != 0"; // BPF expression for TCP RST packets
+    protected static String description = "Filter to read TCP RST packets";
+    protected static String filterExpression = "tcp[13] & 0x04 != 0"; // BPF expression for TCP RST packets
+    
+    public static String getDescription() {
+        return description;
+    }
+    
+    public static String getFilterExpression() {
+        return filterExpression;
     }
 }
